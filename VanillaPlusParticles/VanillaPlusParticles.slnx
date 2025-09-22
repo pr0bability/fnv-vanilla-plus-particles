@@ -1,0 +1,8 @@
+<Solution>
+  <Configurations>
+    <BuildType Name="Debug" />
+    <BuildType Name="Release" />
+    <Platform Name="Win32" />
+  </Configurations>
+  <Project Path="VanillaPlusParticles.vcxproj" Id="443D2C85-F2DD-4EEF-B220-02E0DF5F9A9C" />
+</Solution>

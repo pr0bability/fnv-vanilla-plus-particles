@@ -1,0 +1,37 @@
+set FXC="C:\Program Files (x86)\Windows Kits\10\bin\10.0.22621.0\x64\fxc.exe"
+
+if not exist package\Shaders\Loose mkdir package\Shaders\Loose
+
+set SHADER_FILE=shaders\NoLighting.hlsl
+
+%FXC% /T vs_3_0 /E Main /DVS /DTEX /Fo "package\shaders\loose\NOLIGHT000.vso" "%SHADER_FILE%"
+%FXC% /T vs_3_0 /E Main /DVS /DVC /Fo "package\shaders\loose\NOLIGHT001.vso" "%SHADER_FILE%"
+%FXC% /T vs_3_0 /E Main /DVS /DTEX /DVC /Fo "package\shaders\loose\NOLIGHT002.vso" "%SHADER_FILE%"
+%FXC% /T vs_3_0 /E Main /DVS /Fo "package\shaders\loose\NOLIGHT003.vso" "%SHADER_FILE%"
+%FXC% /T vs_3_0 /E Main /DVS /DTEX /DFALLOFF /Fo "package\shaders\loose\NOLIGHT004.vso" "%SHADER_FILE%"
+%FXC% /T vs_3_0 /E Main /DVS /DVC /DFALLOFF /Fo "package\shaders\loose\NOLIGHT005.vso" "%SHADER_FILE%"
+%FXC% /T vs_3_0 /E Main /DVS /DTEX /DVC /DFALLOFF /Fo "package\shaders\loose\NOLIGHT006.vso" "%SHADER_FILE%"
+%FXC% /T vs_3_0 /E Main /DVS /DFALLOFF /Fo "package\shaders\loose\NOLIGHT007.vso" "%SHADER_FILE%"
+%FXC% /T vs_3_0 /E Main /DVS /DTEX /DSKIN /Fo "package\shaders\loose\NOLIGHT008.vso" "%SHADER_FILE%"
+%FXC% /T vs_3_0 /E Main /DVS /DVC /DSKIN /Fo "package\shaders\loose\NOLIGHT009.vso" "%SHADER_FILE%"
+%FXC% /T vs_3_0 /E Main /DVS /DTEX /DVC /DSKIN /Fo "package\shaders\loose\NOLIGHT010.vso" "%SHADER_FILE%"
+%FXC% /T vs_3_0 /E Main /DVS /DSKIN /Fo "package\shaders\loose\NOLIGHT011.vso" "%SHADER_FILE%"
+%FXC% /T vs_3_0 /E Main /DVS /DTEX /DFALLOFF /DSKIN /Fo "package\shaders\loose\NOLIGHT012.vso" "%SHADER_FILE%"
+%FXC% /T vs_3_0 /E Main /DVS /DVC /DFALLOFF /DSKIN /Fo "package\shaders\loose\NOLIGHT013.vso" "%SHADER_FILE%"
+%FXC% /T vs_3_0 /E Main /DVS /DTEX /DVC /DFALLOFF /DSKIN /Fo "package\shaders\loose\NOLIGHT014.vso" "%SHADER_FILE%"
+%FXC% /T vs_3_0 /E Main /DVS /DFALLOFF /DSKIN /Fo "package\shaders\loose\NOLIGHT015.vso" "%SHADER_FILE%"
+%FXC% /T vs_3_0 /E Main /DVS /DPSYS /Fo "package\shaders\loose\NOLIGHT016.vso" "%SHADER_FILE%"
+%FXC% /T vs_3_0 /E Main /DVS /DPSYS /DSUBTEX /Fo "package\shaders\loose\NOLIGHT017.vso" "%SHADER_FILE%"
+%FXC% /T vs_3_0 /E Main /DVS /DPSYS /DFALLOFF /Fo "package\shaders\loose\NOLIGHT018.vso" "%SHADER_FILE%"
+%FXC% /T vs_3_0 /E Main /DVS /DPSYS /DSUBTEX /DFALLOFF /Fo "package\shaders\loose\NOLIGHT019.vso" "%SHADER_FILE%"
+
+%FXC% /T ps_3_0 /E Main /DPS /DTEX /Fo "package\shaders\loose\NOLIGHTTEX.pso" "%SHADER_FILE%"
+%FXC% /T ps_3_0 /E Main /DPS /DVC /Fo "package\shaders\loose\NOLIGHTVCONLY.pso" "%SHADER_FILE%"
+%FXC% /T ps_3_0 /E Main /DPS /DTEX /DVC /Fo "package\shaders\loose\NOLIGHTTEXVC.pso" "%SHADER_FILE%"
+%FXC% /T ps_3_0 /E Main /DPS /DTEX /DVC /DPREMULT_ALPHA /Fo "package\shaders\loose\NOLIGHTTEXVCPMA.pso" "%SHADER_FILE%"
+%FXC% /T ps_3_0 /E Main /DPS /Fo "package\shaders\loose\NOLIGHTMAT.pso" "%SHADER_FILE%"
+%FXC% /T ps_3_0 /E Main /DPS /DTEX /DSOFT /Fo "package\shaders\loose\NOLIGHTTEXSOFT.pso" "%SHADER_FILE%"
+%FXC% /T ps_3_0 /E Main /DPS /DVC /DSOFT /Fo "package\shaders\loose\NOLIGHTVCONLYSOFT.pso" "%SHADER_FILE%"
+%FXC% /T ps_3_0 /E Main /DPS /DTEX /DVC /DSOFT /Fo "package\shaders\loose\NOLIGHTTEXVCSOFT.pso" "%SHADER_FILE%"
+%FXC% /T ps_3_0 /E Main /DPS /DTEX /DVC /DPREMULT_ALPHA /DSOFT /Fo "package\shaders\loose\NOLIGHTTEXVCPMASOFT.pso" "%SHADER_FILE%"
+%FXC% /T ps_3_0 /E Main /DPS /DSOFT /Fo "package\shaders\loose\NOLIGHTMATSOFT.pso" "%SHADER_FILE%"
