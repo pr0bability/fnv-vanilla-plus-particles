@@ -9,7 +9,7 @@
 
 #include "nvse/PluginAPI.h"
 
-IDebugLog gLog("logs\\DepthResolve.log");
+IDebugLog gLog("logs\\VanillaPlusParticles.log");
 
 // Hook related globals.
 static CallDetour		kLoadShadersDetour[2];
