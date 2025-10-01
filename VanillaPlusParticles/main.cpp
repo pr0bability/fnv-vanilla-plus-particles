@@ -505,7 +505,7 @@ void InitHooks() {
 EXTERN_DLL_EXPORT bool NVSEPlugin_Query(const NVSEInterface* nvse, PluginInfo* info) {
 	info->infoVersion = PluginInfo::kInfoVersion;
 	info->name = "Vanilla Plus Particles";
-	info->version = 100;
+	info->version = 101;
 
 	return !nvse->isEditor;
 }
