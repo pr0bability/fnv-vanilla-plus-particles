@@ -123,7 +123,7 @@ public:
 
 		NiD3DTextureStagePtr spStage = nullptr;
 
-		for (int i = 0; i < 21; i++) {
+		for (int i = 0; i < 22; i++) {
 			NiD3DPass* pPass = GetPass(i);
 
 			NiD3DTextureStage::CreateNewStage(spStage);
