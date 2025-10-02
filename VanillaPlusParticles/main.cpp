@@ -38,6 +38,7 @@ public:
 				NiTexture* pDepthTexture = ImageSpaceManager::GetDepthTexture();
 				if (pDepthTexture) {
 					pTextureStage->m_pkTexture = pDepthTexture;
+					pTextureStage->SetFilterMode(NiTexturingProperty::FILTER_NEAREST);
 					pTextureStage->ConfigureStage();
 				}
 			}
@@ -127,7 +128,7 @@ public:
 			NiD3DPass* pPass = GetPass(i);
 
 			NiD3DTextureStage::CreateNewStage(spStage);
-			spStage->SetStageProperties(GetPass(i)->m_uiCurrentStage, NiTexturingProperty::CLAMP_S_CLAMP_T, 2);
+			spStage->SetStageProperties(GetPass(i)->m_uiCurrentStage, NiTexturingProperty::CLAMP_S_CLAMP_T, D3DTEXF_POINT, false);
 			GetPass(i)->SetStage(GetPass(i)->m_uiCurrentStage, spStage);
 		}
 

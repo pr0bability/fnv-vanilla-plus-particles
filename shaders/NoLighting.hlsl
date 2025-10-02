@@ -214,7 +214,7 @@ PixelOutput Main(PixelInput input) {
     
     #if defined(SOFT)
         // Soft particles.
-        float sceneDepth = tex2D(DepthMap, input.screenUV.xy * SoftScaleAndScreenSize.zw).r;
+        float sceneDepth = tex2D(DepthMap, (input.screenUV.xy + 0.5f) * SoftScaleAndScreenSize.zw).r;
         float sceneDepthVS = DepthConstants.w / (sceneDepth * DepthConstants.z + DepthConstants.x);
         float softness = saturate((sceneDepthVS - input.depthAndSize.x) / (input.depthAndSize.y * SoftScaleAndScreenSize.x));
     
