@@ -16,6 +16,7 @@ static CallDetour		kLoadShadersDetour[2];
 
 static VirtFuncDetour	kSetupTexturesDetour;
 static VirtFuncDetour	kUpdateConstantsDetour;
+static VirtFuncDetour	kPostRenderSetupDetour;
 
 // Constants.
 static NVSEMessagingInterface*	pMsgInterface = nullptr;
@@ -106,6 +107,23 @@ public:
 			pDevice->SetPixelShaderConstantF(8, (float*)&kScreenSize, 1);
 			pDevice->SetPixelShaderConstantF(9, (float*)&kDepthConstants, 1);
 		}
+	}
+
+	void PostRenderSetupEx(const NiPropertyState* apProperties) {
+		ThisCall(kPostRenderSetupDetour.GetOverwrittenAddr(), this, apProperties);
+
+		NiD3DPass* pPass = GetCurrentPass();
+
+		if (pPass->GetPixelShader() == spPixelShaders[0])
+			NiD3DPass::GetD3DRenderState()->SetPixelShader(spPixelShaders[0]->m_hShader);
+		else if (pPass->GetPixelShader() == spPixelShaders[1])
+			NiD3DPass::GetD3DRenderState()->SetPixelShader(spPixelShaders[1]->m_hShader);
+		else if (pPass->GetPixelShader() == spPixelShaders[2])
+			NiD3DPass::GetD3DRenderState()->SetPixelShader(spPixelShaders[2]->m_hShader);
+		else if (pPass->GetPixelShader() == spPixelShaders[3])
+			NiD3DPass::GetD3DRenderState()->SetPixelShader(spPixelShaders[3]->m_hShader);
+		else if (pPass->GetPixelShader() == spPixelShaders[4])
+			NiD3DPass::GetD3DRenderState()->SetPixelShader(spPixelShaders[4]->m_hShader);
 	}
 
 	template <uint32_t uiCall>
@@ -478,6 +496,7 @@ thread_local bool NiDX9RendererEx::bLastTextureIndicesStatus = false;
 void InitHooks() {
 	kSetupTexturesDetour.ReplaceVirtualFuncEx(0x10BB2A8, &BSShaderNoLightingEx::SetupTexturesEx);
 	kUpdateConstantsDetour.ReplaceVirtualFuncEx(0x10BB2AC, &BSShaderNoLightingEx::UpdateConstantsEx);
+	kPostRenderSetupDetour.ReplaceVirtualFuncEx(0x10BB2BC, &BSShaderNoLightingEx::PostRenderSetupEx); 
 
 	kLoadShadersDetour[0].ReplaceCallEx(0xBC8D33, &BSShaderNoLightingEx::LoadShaders<0>);
 	kLoadShadersDetour[1].ReplaceCallEx(0xBC9A06, &BSShaderNoLightingEx::LoadShaders<1>);
